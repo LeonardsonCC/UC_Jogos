@@ -20,7 +20,10 @@ public class ItemColeta : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.tag == "Player") {
             animator.SetBool("pegando", true);
-            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length / 3); 
+            Destroy(gameObject, animator.GetCurrentAnimatorStateInfo(0).length); 
+
+            GameController.controller.score += 10;
+            GameController.controller.updateScore();
         }
     }
 }
